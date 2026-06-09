@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Undangan Pernikahan: Windy & Agus</title>
+
+    <!-- Meta SEO -->
+    <meta name="description"
+        content="Undangan Pernikahan Windy Afsyah Ramadani & Muhamad Agus Maulana - Minggu, 16 Agustus 2026. Buka undangan untuk melihat detail acara, lokasi, dan mengirimkan doa restu.">
+    <meta name="keywords" content="Undangan Online, Pernikahan, Windy & Agus, Undangan Digital, Wedding Invitation">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=4.8">
+</head>
+
+<body>
+
+    <!-- Desktop Frame Container -->
+    <div class="app-container">
+
+        <!-- Falling Petals Animation Container -->
+        <div class="petals-container" id="petals-container"></div>
+
+        <!-- Hidden Fullscreen Lightbox Overlay for Gallery -->
+        <div id="lightbox" class="lightbox hide" aria-hidden="true">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img" src="" alt="Zoomed view">
+        </div>
+
+        <!-- Background Music -->
+        <audio id="wedding-music" loop>
+            <source src="asset/music.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Floating Music Control -->
+        <button id="music-toggle" class="music-btn hide" aria-label="Toggle Music">
+            <svg class="music-icon icon-spin" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="currentColor"
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z" />
+            </svg>
+            <svg class="music-icon-paused hide" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="currentColor"
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" />
+            </svg>
+        </button>
+
+        <!-- COVER PAGE / WELCOME SCREEN (Strictly Fullscreen & Centered) -->
+        <section id="cover" class="cover-overlay">
+            <!-- Watercolor Floral Corners with mix-blend-mode -->
+            <img src="asset/flower-corner.png" class="cover-flower top-left" alt="">
+            <img src="asset/flower-corner.png" class="cover-flower top-right" alt="">
+            <img src="asset/flower-corner.png" class="cover-flower bottom-left" alt="">
+            <img src="asset/flower-corner.png" class="cover-flower bottom-right" alt="">
+
+            <div class="cover-card">
+                <p class="wedding-subtitle">THE WEDDING OF</p>
+                <h1 class="wedding-title">Windy &amp; Agus</h1>
+
+                <div class="illustration-frame">
+                    <div class="flower-wreath-svg"></div>
+                    <img src="asset/4.jpeg" alt="Windy & Agus Illustration" class="couple-img">
+                </div>
+
+                <div class="recipient-box">
+                    <p class="to-label">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                    <h2 id="guest-name" class="guest-name">Nama Tamu</h2>
+                </div>
+
+                <button id="btn-open-invitation" class="btn btn-gold btn-pulse">
+                    <svg class="btn-icon" viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor"
+                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    Buka Undangan
+                </button>
+            </div>
+        </section>
+
+        <!-- MAIN CONTENT (Hidden until cover is opened to prevent scrolling) -->
+        <main id="main-content" class="main-content locked">
+
+            <!-- Floating Background Watercolor Flowers for rich, non-plain floral feel -->
+            <img src="asset/flower-corner.png" class="floating-bg-flower parallax-bg flower-1" alt="">
+            <img src="asset/flower-corner.png" class="floating-bg-flower parallax-bg flower-2" alt="">
+            <img src="asset/flower-corner.png" class="floating-bg-flower parallax-bg flower-3" alt="">
+            <img src="asset/flower-corner.png" class="floating-bg-flower parallax-bg flower-4" alt="">
+            <img src="asset/flower-corner.png" class="floating-bg-flower parallax-bg flower-5" alt="">
+            <img src="asset/flower-corner.png" class="floating-bg-flower parallax-bg flower-6" alt="">
+            <img src="asset/flower-corner.png" class="floating-bg-flower parallax-bg flower-7" alt="">
+            <img src="asset/flower-corner.png" class="floating-bg-flower parallax-bg flower-8" alt="">
+
+            <!-- HERO SECTION (With Reception Photo Background) -->
+            <section id="hero" class="hero-section text-center scroll-reveal">
+                <!-- Top Flower Overlay -->
+                <img src="asset/flower-corner.png" class="section-flower-decor top-decor" alt="">
+
+                <!-- Black overlay layer for text readability -->
+                <div class="hero-bg-overlay"></div>
+
+                <div class="hero-content-wrap">
+                    <p class="shining-text text-white">The Wedding of</p>
+                    <h2 class="couple-name text-white">Windy &amp; Agus</h2>
+
+                    <!-- Elegant Calligraphy Divider -->
+                    <div class="gold-divider-wrap">
+                        <svg class="gold-divider" viewBox="0 0 100 10" preserveAspectRatio="none">
+                            <path d="M0,5 Q25,0 50,5 T100,5" fill="none" stroke="#E2D1B9" stroke-width="2.5" />
+                            <circle cx="50" cy="5" r="3.5" fill="#E2D1B9" />
+                        </svg>
+                    </div>
+
+                    <p class="date-text text-white-muted">Minggu, 16 Agustus 2026</p>
+
+                    <!-- Countdown Timer -->
+                    <div class="countdown-container animate-fade-in">
+                        <div class="countdown-title">Menuju Hari Bahagia</div>
+                        <div id="countdown" class="countdown-grid">
+                            <div class="countdown-item">
+                                <span id="days" class="time-num">00</span>
+                                <span class="time-label">Hari</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span id="hours" class="time-num">00</span>
+                                <span class="time-label">Jam</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span id="minutes" class="time-num">00</span>
+                                <span class="time-label">Menit</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span id="seconds" class="time-num">00</span>
+                                <span class="time-label">Detik</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BRIDE & GROOM PROFILE -->
+            <section id="profile" class="profile-section text-center scroll-reveal">
+                <div class="section-title-wrap">
+                    <span class="brush-accent">Mempelai</span>
+                    <h3 class="section-title">Kedua Mempelai</h3>
+                </div>
+                <p class="greeting-arabic">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                <p class="greeting-text">Dengan memohon ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk
+                    menghadiri pernikahan Putra-Putri kami:</p>
+
+                <!-- Bride Profile Card (With Large Portrait Photo Frame) -->
+                <div class="profile-card animate-float scroll-reveal">
+                    <img src="asset/flower-corner.png" class="card-flower-decor top-left" alt="">
+                    <img src="asset/flower-corner.png" class="card-flower-decor bottom-right" alt="">
+                    <div class="double-gold-border"></div>
+
+                    <div class="portrait-avatar-frame">
+                        <img src="asset/3.jpeg" alt="Windy Portrait" class="mempelai-portrait">
+                        <div class="portrait-gold-trim"></div>
+                    </div>
+
+                    <h4 class="mempelai-name">Windy Afsyah Ramadani</h4>
+                    <p class="parents-info">Putri Ke-2 dari</p>
+                    <p class="parents-names">Bapak Suprianto &amp; Ibu Uci Ramadani</p>
+
+                </div>
+
+                <div class="love-divider">
+                    <svg viewBox="0 0 24 24" width="36" height="36" class="gold-heart">
+                        <path fill="currentColor"
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                </div>
+
+                <!-- Groom Profile Card (With Large Portrait Photo Frame) -->
+                <div class="profile-card animate-float-delay scroll-reveal">
+                    <img src="asset/flower-corner.png" class="card-flower-decor top-left" alt="">
+                    <img src="asset/flower-corner.png" class="card-flower-decor bottom-right" alt="">
+                    <div class="double-gold-border"></div>
+
+                    <div class="portrait-avatar-frame">
+                        <img src="asset/1.jpeg" alt="Agus Portrait" class="mempelai-portrait">
+                        <div class="portrait-gold-trim"></div>
+                    </div>
+
+                    <h4 class="mempelai-name">Muhamad Agus Maulana</h4>
+                    <p class="parents-info">Putra Ke-5 dari</p>
+                    <p class="parents-names">Bapak H. Murtado &amp; Ibu Hj. Haeriyah</p>
+
+                </div>
+            </section>
+
+            <!-- EVENT DETAILS (AKAD & RESEPSI) -->
+            <section id="events" class="events-section scroll-reveal">
+                <div class="section-title-wrap text-center">
+                    <span class="brush-accent">Acara</span>
+                    <h3 class="section-title">Informasi Acara</h3>
+                </div>
+
+                <p class="event-intro text-center">Insya Allah Pernikahan kami akan diselenggarakan pada:</p>
+
+                <!-- Akad Card -->
+                <div class="event-card scroll-reveal">
+                    <img src="asset/flower-corner.png" class="card-flower-decor top-left" alt="">
+                    <img src="asset/flower-corner.png" class="card-flower-decor bottom-right" alt="">
+                    <div class="double-gold-border"></div>
+
+                    <div class="card-header-accent">
+                        <span class="event-tag">AKAD NIKAH</span>
+                    </div>
+                    <div class="event-details">
+                        <div class="detail-row">
+                            <svg class="detail-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor"
+                                    d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z" />
+                            </svg>
+                            <span class="detail-val">Minggu, 16 Agustus 2026</span>
+                        </div>
+                        <div class="detail-row">
+                            <svg class="detail-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor"
+                                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                            </svg>
+                            <span class="detail-val">Pukul 09.00 WIB</span>
+                        </div>
+                        <div class="detail-row align-start">
+                            <svg class="detail-icon mt-4" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor"
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            <span class="detail-val">
+                                <strong>Jl. Tanjung Pura Pangkalan Brandan</strong><br>
+                                Gang Supir Pelawi Dalam
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resepsi Card -->
+                <div class="event-card scroll-reveal">
+                    <img src="asset/flower-corner.png" class="card-flower-decor top-left" alt="">
+                    <img src="asset/flower-corner.png" class="card-flower-decor bottom-right" alt="">
+                    <div class="double-gold-border"></div>
+
+                    <div class="card-header-accent">
+                        <span class="event-tag">RESEPSI</span>
+                    </div>
+                    <div class="event-details">
+                        <div class="detail-row">
+                            <svg class="detail-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor"
+                                    d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z" />
+                            </svg>
+                            <span class="detail-val">Minggu, 16 Agustus 2026</span>
+                        </div>
+                        <div class="detail-row">
+                            <svg class="detail-icon" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor"
+                                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                            </svg>
+                            <span class="detail-val">Pukul 10.00 WIB s/d 17.00 WIB</span>
+                        </div>
+                        <div class="detail-row align-start">
+                            <svg class="detail-icon mt-4" viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="currentColor"
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            <span class="detail-val">
+                                <strong>Jl. Tanjung Pura Pangkalan Brandan</strong><br>
+                                Gang Supir Pelawi Dalam
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Action Buttons -->
+                <div class="event-actions text-center scroll-reveal">
+                    <a href="https://maps.google.com/?q=Jl.+Tanjung+Pura+Pangkalan+Brandan+Gang+Supir+Pelawi+Dalam"
+                        target="_blank" class="btn btn-navy">
+                        <svg class="btn-icon" viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="currentColor"
+                                d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
+                        </svg>
+                        Petunjuk Lokasi (Google Maps)
+                    </a>
+
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Windy+and+Agus&dates=20260816T020000Z/20260816T100000Z&details=Pernikahan+Windy+Afsyah+Ramadani+%26+Muhamad+Agus+Maulana&location=Jl.+Tanjung+Pura+Pangkalan+Brandan+Gang+Supir+Pelawi+Dalam&sf=true&output=xml"
+                        target="_blank" class="btn btn-gold-outline">
+                        <svg class="btn-icon" viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="currentColor"
+                                d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                        </svg>
+                        Simpan ke Kalender
+                    </a>
+                </div>
+            </section>
+
+            <!-- OUR STORY SLIDER SECTION -->
+            <section id="story" class="story-section scroll-reveal">
+                <div class="section-title-wrap text-center">
+                    <span class="brush-accent">Kisah Cinta</span>
+                    <h3 class="section-title">Our Story</h3>
+                </div>
+
+                <!-- Carousel Slider container -->
+                <div class="carousel-container">
+                    <div id="story-slider" class="carousel-slider">
+
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide active" data-index="0">
+                            <div class="slide-card">
+                                <div class="slide-badge">2022</div>
+                                <h4 class="slide-title">Pertama Bertemu</h4>
+                                <p class="slide-desc">
+                                    Pertemuan pertama kami tidak pernah direncanakan sebelumnya. Di tahun 2022, takdir
+                                    mempertemukan kami dalam sebuah lingkaran pertemanan. Kesan pertama yang sederhana
+                                    menumbuhkan ketertarikan yang mendalam di hati masing-masing.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide" data-index="1">
+                            <div class="slide-card">
+                                <div class="slide-badge">2023</div>
+                                <h4 class="slide-title">Menjalin Hubungan</h4>
+                                <p class="slide-desc">
+                                    Setelah mengenal lebih dekat, di tahun 2023 kami memutuskan untuk bersama. Menjalani
+                                    hari dengan penuh tawa, saling bertukar cerita, dan belajar melengkapi kekurangan
+                                    satu sama lain menjadi fondasi kuat perjalanan kami.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-slide" data-index="2">
+                            <div class="slide-card">
+                                <div class="slide-badge">2025</div>
+                                <h4 class="slide-title">Lamaran (Engagement)</h4>
+                                <p class="slide-desc">
+                                    Komitmen serius mulai diikrarkan. Di hadapan keluarga besar kedua belah pihak, di
+                                    tahun 2025 kami melangsungkan acara lamaran. Janji suci untuk melangkah ke jenjang
+                                    yang lebih tinggi diikat dengan restu kedua orang tua.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="carousel-slide" data-index="3">
+                            <div class="slide-card">
+                                <div class="slide-badge">2026</div>
+                                <h4 class="slide-title">Menuju Pernikahan</h4>
+                                <p class="slide-desc">
+                                    Dan kini di tahun 2026, langkah terakhir dari pencarian kami telah tiba. Kami sangat
+                                    bersyukur atas segala proses yang dilalui dan siap membangun bahtera rumah tangga
+                                    sebagai sepasang suami istri yang sah.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Slide Controls -->
+                    <button id="prev-slide" class="carousel-control prev-btn" aria-label="Previous Slide">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                        </svg>
+                    </button>
+                    <button id="next-slide" class="carousel-control next-btn" aria-label="Next Slide">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+                        </svg>
+                    </button>
+
+                    <!-- Indicators -->
+                    <div class="carousel-indicators">
+                        <span class="indicator active" data-index="0"></span>
+                        <span class="indicator" data-index="1"></span>
+                        <span class="indicator" data-index="2"></span>
+                        <span class="indicator" data-index="3"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PHOTO GALLERY SECTION (Galeri Foto) -->
+            <section id="gallery" class="gallery-section scroll-reveal">
+                <div class="section-title-wrap text-center">
+                    <span class="brush-accent">Galeri Bahagia</span>
+                    <h3 class="section-title">Gallery of Love</h3>
+                </div>
+
+                <p class="gallery-intro text-center">Momen-momen indah perjalanan cinta kami:</p>
+
+                <!-- Masonry/Grid Photo Gallery -->
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="asset/2.jpeg" alt="Windy & Agus Wedding Moment 1" class="gallery-img">
+                        <div class="gallery-hover-overlay">
+                            <svg class="zoom-icon" viewBox="0 0 24 24" width="28" height="28">
+                                <path fill="currentColor"
+                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="asset/4.jpeg" alt="Wedding Ring Exchange" class="gallery-img">
+                        <div class="gallery-hover-overlay">
+                            <svg class="zoom-icon" viewBox="0 0 24 24" width="28" height="28">
+                                <path fill="currentColor"
+                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="asset/5.jpeg" alt="Holding Hands" class="gallery-img">
+                        <div class="gallery-hover-overlay">
+                            <svg class="zoom-icon" viewBox="0 0 24 24" width="28" height="28">
+                                <path fill="currentColor"
+                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="asset/6.jpeg" alt="Floral Bouquet and Wreath" class="gallery-img">
+                        <div class="gallery-hover-overlay">
+                            <svg class="zoom-icon" viewBox="0 0 24 24" width="28" height="28">
+                                <path fill="currentColor"
+                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="asset/7.jpeg" alt="Elegant Wedding Table" class="gallery-img">
+                        <div class="gallery-hover-overlay">
+                            <svg class="zoom-icon" viewBox="0 0 24 24" width="28" height="28">
+                                <path fill="currentColor"
+                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="asset/8.jpeg" alt="Wedding Glasses Toast" class="gallery-img">
+                        <div class="gallery-hover-overlay">
+                            <svg class="zoom-icon" viewBox="0 0 24 24" width="28" height="28">
+                                <path fill="currentColor"
+                                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DIGITAL GIFT / NOMOR REKENING -->
+            <section id="gift" class="gift-section text-center scroll-reveal">
+                <div class="section-title-wrap">
+                    <span class="brush-accent">Kado Digital</span>
+                    <h3 class="section-title">Dompet Digital / Transfer</h3>
+                </div>
+                <p class="gift-text">
+                    Doa restu Anda merupakan kado terindah bagi kami. Namun jika Anda ingin memberikan tanda kasih
+                    secara digital, Anda dapat mentransfer ke rekening di bawah ini:
+                </p>
+
+                <!-- DANA Account Card -->
+                <div class="gift-card scroll-reveal">
+                    <img src="asset/flower-corner.png" class="card-flower-decor top-left" alt="">
+                    <img src="asset/flower-corner.png" class="card-flower-decor bottom-right" alt="">
+                    <div class="double-gold-border"></div>
+
+                    <div class="card-bank-header">
+                        <span class="bank-name">DANA</span>
+                    </div>
+                    <div class="bank-details">
+                        <p class="holder-label">Atas Nama:</p>
+                        <p class="holder-name">MUHAMAD AGUS MAULANA</p>
+
+                        <div class="account-number-box">
+                            <span id="acc-number-dana" class="account-number">0815 2282 1413</span>
+                            <button class="btn-copy" onclick="copyAccountNumber('acc-number-dana', this)"
+                                aria-label="Salin Nomor Rekening Dana">
+                                <svg class="copy-icon" viewBox="0 0 24 24" width="18" height="18">
+                                    <path fill="currentColor"
+                                        d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+                                </svg>
+                                <span class="btn-copy-text">Salin</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mandiri Account Card -->
+                <div class="gift-card scroll-reveal">
+                    <img src="asset/flower-corner.png" class="card-flower-decor top-left" alt="">
+                    <img src="asset/flower-corner.png" class="card-flower-decor bottom-right" alt="">
+                    <div class="double-gold-border"></div>
+
+                    <div class="card-bank-header">
+                        <span class="bank-name">BANK MANDIRI</span>
+                    </div>
+                    <div class="bank-details">
+                        <p class="holder-label">Atas Nama:</p>
+                        <p class="holder-name">MUHAMAD AGUS MAULANA</p>
+
+                        <div class="account-number-box">
+                            <span id="acc-number-mandiri" class="account-number">1250013884952</span>
+                            <button class="btn-copy" onclick="copyAccountNumber('acc-number-mandiri', this)"
+                                aria-label="Salin Nomor Rekening Mandiri">
+                                <svg class="copy-icon" viewBox="0 0 24 24" width="18" height="18">
+                                    <path fill="currentColor"
+                                        d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+                                </svg>
+                                <span class="btn-copy-text">Salin</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WISHES & RSVP FORM -->
+            <section id="rsvp" class="rsvp-section scroll-reveal">
+                <div class="section-title-wrap text-center">
+                    <span class="brush-accent">Ucapan &amp; RSVP</span>
+                    <h3 class="section-title">Doa Restu &amp; Kehadiran</h3>
+                </div>
+
+                <div class="form-container scroll-reveal">
+                    <form id="rsvp-form" onsubmit="submitWish(event)">
+                        <div class="input-group">
+                            <label for="form-name">Nama Lengkap</label>
+                            <input type="text" id="form-name" required placeholder="Masukkan nama Anda">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="form-attendance">Konfirmasi Kehadiran</label>
+                            <select id="form-attendance" required>
+                                <option value="" disabled selected>Pilih kehadiran...</option>
+                                <option value="Hadir">Saya akan Hadir</option>
+                                <option value="Tidak Hadir">Maaf, Saya Tidak Hadir</option>
+                                <option value="Ragu-ragu">Masih Ragu-ragu</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="form-message">Pesan &amp; Doa Restu</label>
+                            <textarea id="form-message" rows="4" required
+                                placeholder="Tulis ucapan selamat dan doa restu Anda untuk Windy & Agus..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-navy w-full btn-submit">
+                            <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                            </svg>
+                            Kirim Ucapan
+                        </button>
+                    </form>
+                </div>
+
+                <div class="wishes-wall scroll-reveal">
+                    <h4 class="wishes-title">Pesan Doa Restu (<span id="wishes-count">0</span>)</h4>
+                    <div id="wishes-list" class="wishes-list">
+                        <!-- Guest messages populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER / OUTRO -->
+            <footer class="footer text-center scroll-reveal">
+                <!-- Watercolor Hydrangeas Footer Decor -->
+                <img src="asset/flower-corner.png" class="section-flower-decor bottom-decor" alt="">
+
+                <p class="thank-you-arabic">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                <p class="thank-you-text">
+                    Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir
+                    untuk memberikan doa restu kepada kedua mempelai.
+                </p>
+
+                <p class="signature-label">Kami yang berbahagia,</p>
+                <h4 class="signature-names">Windy &amp; Agus</h4>
+                <p class="signature-parents">Keluarga Bapak Suprianto &amp; Ibu Uci Ramadani</p>
+                <p class="signature-parents">&amp;</p>
+                <p class="signature-parents">Keluarga Bapak H. Murtado &amp; Ibu Hj. Haeriyah</p>
+
+                <div class="footer-credit">
+                    <p>&copy; 2026 Windy &amp; Agus Wedding. All Rights Reserved.</p>
+                    <p class="sub-credit">Made with ❤️ for Windy &amp; Agus</p>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Paper Grain Texture Filter Overlay -->
+    <svg class="hide" xmlns="http://www.w3.org/2000/svg">
+        <filter id="paper-grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+            <feDiffuseLighting in="noise" lighting-color="#fff" surfaceScale="2" result="light">
+                <feDistantLight azimuth="45" elevation="60" />
+            </feDiffuseLighting>
+            <feBlend mode="multiply" in="SourceGraphic" in2="light" />
+        </filter>
+    </svg>
+
+    <!-- Script -->
+    <script src="script.js?v=4.5"></script>
+</body>
+
+</html>
