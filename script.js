@@ -367,8 +367,7 @@ const preseededWishes = [
 // Cek apakah URL Firebase sudah dikonfigurasi dengan benar oleh user
 function isFirebaseValid() {
     return FIREBASE_URL && 
-           !FIREBASE_URL.includes("YOUR_PROJECT_ID") && 
-           !FIREBASE_URL.includes("undangan-windy-agus-default-rtdb.firebaseio.com");
+           !FIREBASE_URL.includes("YOUR_PROJECT_ID");
 }
 
 async function loadWishes() {
