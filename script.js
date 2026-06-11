@@ -331,8 +331,12 @@ function copyAccountNumber(elementId, button) {
 }
 
 // ==========================================================================
-// 9. WISHES & RSVP FORM (LOCAL STORAGE ENGINE)
+// 9. WISHES & RSVP FORM (FIREBASE & LOCAL STORAGE ENGINE)
 // ==========================================================================
+// Silakan buat Realtime Database di Firebase, lalu ganti URL di bawah ini dengan URL Database Firebase Anda.
+// Contoh format: "https://nama-project-rtdb.firebaseio.com/wishes.json"
+const FIREBASE_URL = "https://undangan-windy-agus-default-rtdb.firebaseio.com/wishes.json";
+
 const preseededWishes = [
     {
         name: "Budi Santoso",
@@ -360,19 +364,46 @@ const preseededWishes = [
     }
 ];
 
-function loadWishes() {
-    let wishes = JSON.parse(localStorage.getItem("wedding_wishes"));
-    
-    if (!wishes || wishes.length === 0) {
-        wishes = preseededWishes;
-        localStorage.setItem("wedding_wishes", JSON.stringify(wishes));
-    }
+// Cek apakah URL Firebase sudah dikonfigurasi dengan benar oleh user
+function isFirebaseValid() {
+    return FIREBASE_URL && 
+           !FIREBASE_URL.includes("YOUR_PROJECT_ID") && 
+           !FIREBASE_URL.includes("undangan-windy-agus-default-rtdb.firebaseio.com");
+}
 
-    wishes.sort((a, b) => b.timestamp - a.timestamp);
-
+async function loadWishes() {
     const wishesList = document.getElementById("wishes-list");
     const countSpan = document.getElementById("wishes-count");
     
+    let wishes = [];
+
+    if (isFirebaseValid()) {
+        try {
+            const response = await fetch(FIREBASE_URL);
+            if (response.ok) {
+                const data = await response.json();
+                if (data) {
+                    // Firebase RTDB mengembalikan object of objects, kita ubah jadi array
+                    wishes = Object.keys(data).map(key => ({
+                        id: key,
+                        ...data[key]
+                    }));
+                }
+            } else {
+                console.warn("Gagal mengambil data dari Firebase, menggunakan Local Storage.");
+                wishes = getLocalWishes();
+            }
+        } catch (error) {
+            console.error("Error fetching dari Firebase:", error);
+            wishes = getLocalWishes();
+        }
+    } else {
+        wishes = getLocalWishes();
+    }
+
+    // Urutkan dari yang paling baru
+    wishes.sort((a, b) => b.timestamp - a.timestamp);
+
     wishesList.innerHTML = "";
     countSpan.textContent = wishes.length;
 
@@ -405,12 +436,22 @@ function loadWishes() {
     });
 }
 
-function submitWish(event) {
+function getLocalWishes() {
+    let wishes = JSON.parse(localStorage.getItem("wedding_wishes"));
+    if (!wishes || wishes.length === 0) {
+        wishes = preseededWishes;
+        localStorage.setItem("wedding_wishes", JSON.stringify(wishes));
+    }
+    return wishes;
+}
+
+async function submitWish(event) {
     event.preventDefault();
     
     const nameInput = document.getElementById("form-name");
     const attendanceSelect = document.getElementById("form-attendance");
     const messageInput = document.getElementById("form-message");
+    const submitBtn = document.querySelector(".btn-submit");
 
     const newWish = {
         name: nameInput.value.trim(),
@@ -424,14 +465,58 @@ function submitWish(event) {
         return;
     }
 
+    // Disable button agar tidak dobel submit
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Mengirim...";
+    }
+
+    if (isFirebaseValid()) {
+        try {
+            const response = await fetch(FIREBASE_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newWish)
+            });
+
+            if (response.ok) {
+                alert("Terima kasih! Ucapan Anda telah terkirim.");
+                messageInput.value = "";
+                await loadWishes();
+            } else {
+                throw new Error("Gagal menyimpan ke server");
+            }
+        } catch (error) {
+            console.error("Gagal kirim ke Firebase, menyimpan lokal:", error);
+            saveLocalWish(newWish);
+            alert("Terima kasih! Ucapan Anda berhasil terkirim.");
+            messageInput.value = "";
+            await loadWishes();
+        }
+    } else {
+        saveLocalWish(newWish);
+        alert("Terima kasih! Ucapan Anda berhasil terkirim.");
+        messageInput.value = "";
+        loadWishes();
+    }
+
+    if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `
+            <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18">
+                <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+            </svg>
+            Kirim Ucapan
+        `;
+    }
+}
+
+function saveLocalWish(newWish) {
     let wishes = JSON.parse(localStorage.getItem("wedding_wishes")) || [];
     wishes.push(newWish);
     localStorage.setItem("wedding_wishes", JSON.stringify(wishes));
-
-    loadWishes();
-
-    messageInput.value = "";
-    alert("Terima kasih! Ucapan Anda telah terkirim.");
 }
 
 function escapeHTML(str) {
